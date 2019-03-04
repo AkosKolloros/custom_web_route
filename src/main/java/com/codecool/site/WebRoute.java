@@ -9,4 +9,6 @@ import java.lang.annotation.ElementType;
 @Target(ElementType.METHOD)
 public @interface WebRoute {
     String value() default "";
+    RequestMethod method() default RequestMethod.GET;
+    String path() default "";
 }
