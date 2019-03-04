@@ -21,8 +21,13 @@ public class Test {
                 Here comes your logic.
                 If the given path from the HttpExchange method is the SAME like the WebRoute annotation's path, you should INVOKE this method.
                 */
-
                 String route = m.getAnnotation(webRouteClass).value();
+
+                if (route.equals("")) {
+                    route = m.getAnnotation(webRouteClass).path();
+                }
+
+                System.out.println(route);
 
                 String response = m.invoke(new Routes()).toString();
 
